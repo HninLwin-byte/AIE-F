@@ -2,7 +2,9 @@
 ### (@Class-13 and 14)
 
 >Prof: Dr. Ye Kyaw Thu (LU Lab)
+
 >Student: Thein Kyaw Lwin
+
 >Date: 17, June, 2026
 
 ---
@@ -111,7 +113,7 @@ cd /workspace/tools/mgiza/mgizapp
 cmake .
 make -j4
 ```
-ပြီးနောက် mgiza binary file များကို training-tools directory ထဲသို့ ရွှေ့လိုက်ပါသည်။ အဲ့အတွက် shell script ရေးပြီး run ခဲ့ပါတယ်
+ပြီးတော့ mgiza binary file တွေကို training-tools directory ထဲကို ရွှေ့လိုက်ပါတယ်။ အဲ့အတွက် shell script ရေးပြီး run ခဲ့ပါတယ်။
 ```bash
 /workspace/tools/setup_mgiza.sh
 ```
