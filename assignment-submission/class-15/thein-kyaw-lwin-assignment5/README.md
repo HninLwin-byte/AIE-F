@@ -91,12 +91,12 @@ This script compiles KenLM, builds Python bindings, cleans and partitions raw da
 The files inside `assignment5/data/` are organized into distinct processing stages:
 ```
 data/
-├── raw/               <-- Untokenized raw texts (downloaded & cleaned sentences)
-├── tokenized/         <-- Syllable-segmented training corpora (ready for KenLM)
+├── raw/               <-- Untokenized raw texts (downloaded & cleaned sentences) <-- (deleted to Git push)
+├── tokenized/         <-- Syllable-segmented training corpora (ready for KenLM) <-- (deleted to Git push)
 ├── balanced_tests/    <-- Sliced balanced 200-syllable evaluation test sets
-└── models/            <-- KenLM output models (.arpa, .binary), metrics, and plots (deleted to Git push)
+└── models/            <-- KenLM output models (.arpa, .binary), metrics, and plots <-- (deleted to Git push)
 ```
-*(Note: Large intermediate `.txt` files in `data/tokenized/` has been compressed as `.txt.zip` for final directory cleanliness and delivery).*
+*(Note: Data folders were deleted to push to Github (avoid large file size limit). But after running `run_pipeline.sh`, all data folders will be appeared again.*
 
 ---
 
