@@ -96,7 +96,7 @@ data/
 ├── balanced_tests/    <-- Sliced balanced 200-syllable evaluation test sets
 └── models/            <-- KenLM output models (.arpa, .binary), metrics, and plots <-- (deleted to Git push)
 ```
-*(Note: Data folders were deleted to push to Github (avoid large file size limit). But after running `run_pipeline.sh`, all data folders will be appeared again.*
+*Note: Data folders were deleted to push to Github (avoid large file size limit). But after running `run_pipeline.sh`, all data folders will be appeared again.*
 
 ---
 
