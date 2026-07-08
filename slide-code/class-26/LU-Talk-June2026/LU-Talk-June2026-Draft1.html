@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LU Talk (June, 2026)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Sans+Myanmar:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', 'Noto Sans Myanmar', sans-serif;
+    background: #e8e8e8;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    min-height: 100vh;
+  }
+
+  .poster {
+    width: 794px;
+    height: 1123px;
+    background: #ffffff;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+  }
+
+  .top-bar {
+    height: 7px;
+    background: linear-gradient(90deg, #1e3a5f 0%, #2d6a9f 40%, #d4a843 70%, #1e3a5f 100%);
+  }
+
+  .header {
+    background: linear-gradient(135deg, #1e3a5f 0%, #2a5280 50%, #1e3a5f 100%);
+    padding: 20px 36px 18px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 180px;
+    height: 180px;
+    background: rgba(212, 168, 67, 0.08);
+    border-radius: 50%;
+  }
+
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -60px;
+    left: 30%;
+    width: 260px;
+    height: 260px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 50%;
+  }
+
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .lab-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .lab-logo-bg {
+    background: #ffffff;
+    border-radius: 7px;
+    padding: 5px 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lab-logo-img {
+    width: auto;
+    height: 38px;
+    object-fit: contain;
+    display: block;
+  }
+
+  .lab-name {
+    color: rgba(255,255,255,0.7);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  .series-label {
+    color: rgba(255,255,255,0.5);
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .header h1 em {
+    color: #d4a843;
+    font-style: italic;
+  }
+
+  .header-subtitle {
+    color: rgba(255,255,255,0.55);
+    font-size: 12px;
+    font-weight: 300;
+    margin-top: 4px;
+    letter-spacing: 0.5px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .body-content {
+    padding: 22px 36px 0;
+    display: flex;
+    gap: 24px;
+    height: calc(1123px - 7px - 108px - 52px); /* total - topbar - header - footer */
+  }
+
+  .left-col {
+    width: 228px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .speaker-photo-wrapper {
+    width: 228px;
+    height: 260px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2.5px solid #f0f0f0;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.07);
+    flex-shrink: 0;
+  }
+
+  .speaker-photo-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .speaker-name-block {
+    margin-top: 12px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .speaker-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #1e3a5f;
+    line-height: 1.25;
+  }
+
+  .speaker-affiliation {
+    margin-top: 4px;
+    font-size: 11px;
+    color: #666;
+    font-weight: 400;
+    line-height: 1.45;
+  }
+
+  .speaker-affiliation strong {
+    color: #2d6a9f;
+    font-weight: 600;
+  }
+
+  .divider-gold {
+    width: 36px;
+    height: 2px;
+    background: #d4a843;
+    margin: 10px auto;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  .datetime-block {
+    margin-top: 10px;
+    background: linear-gradient(135deg, #f8f9fb 0%, #eef2f7 100%);
+    border-radius: 8px;
+    padding: 12px 14px;
+    border: 1px solid #e0e5ec;
+    flex-shrink: 0;
+  }
+
+  .datetime-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .datetime-row:last-child { margin-bottom: 0; }
+
+  .dt-icon {
+    font-size: 13px;
+    margin-top: 1px;
+    flex-shrink: 0;
+  }
+
+  .dt-label {
+    font-size: 9px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #999;
+    margin-bottom: 1px;
+  }
+
+  .dt-value {
+    font-size: 12px;
+    font-weight: 600;
+    color: #1e3a5f;
+    line-height: 1.35;
+  }
+
+  .dt-value small {
+    font-weight: 400;
+    color: #777;
+    font-size: 10px;
+  }
+
+  .qr-block {
+    margin-top: auto;
+    text-align: center;
+    padding-top: 10px;
+    flex-shrink: 0;
+  }
+
+  .qr-label {
+    font-size: 9px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #999;
+    margin-bottom: 6px;
+  }
+
+  .qr-image-wrapper {
+    width: 110px;
+    height: 110px;
+    margin: 0 auto;
+    border: 1.5px solid #e0e5ec;
+    border-radius: 7px;
+    overflow: hidden;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .qr-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .right-col {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .lecture-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #1e3a5f;
+    line-height: 1.3;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #d4a843;
+  }
+
+  .section-title {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #d4a843;
+    margin-bottom: 7px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, #d4a843, transparent);
+  }
+
+  .abstract-text {
+    font-size: 11.5px;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 4px;
+  }
+
+  .abstract-text .sub-head {
+    font-weight: 600;
+    color: #1e3a5f;
+    margin-top: 7px;
+    margin-bottom: 2px;
+    font-size: 11px;
+  }
+
+  .abstract-text .sub-head:first-child {
+    margin-top: 0;
+  }
+
+  .abstract-text ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2px 0;
+  }
+
+  .abstract-text ul li {
+    position: relative;
+    padding-left: 12px;
+    margin-bottom: 2px;
+    font-size: 11px;
+    line-height: 1.55;
+    color: #555;
+  }
+
+  .abstract-text ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #d4a843;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .bio-section {
+    margin-top: 14px;
+  }
+
+  .bio-timeline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    font-size: 10.5px;
+    line-height: 1.45;
+    color: #555;
+  }
+
+  .bio-item {
+    width: 100%;
+    padding: 2px 0 2px 12px;
+    position: relative;
+  }
+
+  .bio-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #d4a843;
+    border: 1px solid #fff;
+    box-shadow: 0 0 0 1px #d4a843;
+  }
+
+  .bio-item .bio-year {
+    font-weight: 700;
+    color: #1e3a5f;
+    margin-right: 5px;
+    font-size: 10px;
+  }
+
+  .bio-two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 14px;
+  }
+
+  .bio-two-col .bio-item {
+    width: 100%;
+  }
+
+  .footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 52px;
+    background: linear-gradient(135deg, #1e3a5f 0%, #2a5280 100%);
+    padding: 0 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .chair-label {
+    font-size: 9px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: rgba(255,255,255,0.4);
+  }
+
+  .chair-name {
+    font-size: 12px;
+    font-weight: 600;
+    color: #ffffff;
+  }
+
+  .chair-detail {
+    font-size: 10px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 300;
+  }
+
+  .footer-contact {
+    text-align: right;
+  }
+
+  .footer-contact a {
+    font-size: 10px;
+    color: #d4a843;
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+  }
+
+  .footer-contact a:hover { text-decoration: underline; }
+
+  .footer-lab {
+    font-size: 8.5px;
+    color: rgba(255,255,255,0.3);
+    margin-top: 1px;
+    letter-spacing: 0.5px;
+  }
+
+  .corner-accent {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    border: 2px solid rgba(212, 168, 67, 0.12);
+    pointer-events: none;
+  }
+
+  .corner-accent.top-right {
+    top: 16px;
+    right: 16px;
+    border-left: none;
+    border-bottom: none;
+    border-radius: 0 6px 0 0;
+  }
+
+  .corner-accent.bottom-left {
+    bottom: 60px;
+    left: 16px;
+    border-right: none;
+    border-top: none;
+    border-radius: 0 0 0 6px;
+  }
+
+  /* ===== PRINT: Force single A4 page, zero margins ===== */
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+
+  @media print {
+    html, body {
+      width: 210mm;
+      height: 297mm;
+      background: #fff;
+      padding: 0;
+      margin: 0;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    .poster {
+      width: 210mm;
+      height: 297mm;
+      box-shadow: none;
+      overflow: hidden;
+    }
+  }
+
+  @media (max-width: 840px) {
+    body { padding: 10px; }
+    .poster { width: 100%; height: auto; }
+    .body-content { flex-direction: column; height: auto; padding: 20px; }
+    .left-col { width: 100%; flex-direction: row; flex-wrap: wrap; gap: 16px; align-items: flex-start; }
+    .speaker-photo-wrapper { width: 130px; height: 170px; }
+    .speaker-name-block { text-align: left; flex: 1; }
+    .divider-gold { display: none; }
+    .datetime-block { margin-top: 0; flex: 1; }
+    .qr-block { margin-top: 14px; padding-top: 14px; }
+    .header { padding: 16px; }
+    .header h1 { font-size: 26px; }
+    .footer { height: auto; padding: 12px 16px; flex-direction: column; gap: 6px; text-align: center; position: relative; }
+    .footer-contact { text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="poster">
+  <div class="top-bar"></div>
+  <div class="corner-accent top-right"></div>
+  <div class="corner-accent bottom-left"></div>
+
+  <div class="header">
+    <div class="header-top">
+      <div class="lab-brand">
+        <div class="lab-logo-bg">
+          <img class="lab-logo-img" src="LU-lab-logo.png" alt="LU Lab Logo">
+        </div>
+        <div>
+          <div class="lab-name">Language Understanding Lab.</div>
+          <div style="color:rgba(255,255,255,0.35); font-size:9px; letter-spacing:1px; margin-top:1px;">MYANMAR</div>
+        </div>
+      </div>
+      <div class="series-label">Invited Lecture Series</div>
+    </div>
+    <h1>LU Talk <em>(June, 2026)</em></h1>
+    <div class="header-subtitle">Learning Journey of a Resource Teacher Vision</div>
+  </div>
+
+  <div class="body-content">
+
+    <div class="left-col">
+      <div class="speaker-photo-wrapper">
+        <img src="Invited-Speaker-June2026.png" alt="Yin Yin Htay">
+      </div>
+
+      <div class="speaker-name-block">
+        <div class="speaker-name">Yin Yin Htay</div>
+        <div class="speaker-affiliation">
+          <strong>Resource Teacher Vision</strong><br>
+          BLENNZ, New Zealand
+        </div>
+      </div>
+
+      <div class="divider-gold"></div>
+
+      <div class="datetime-block">
+        <div class="datetime-row">
+          <div class="dt-icon">📅</div>
+          <div>
+            <div class="dt-label">Date</div>
+            <div class="dt-value">7 June 2026 (Sunday)</div>
+          </div>
+        </div>
+        <div class="datetime-row">
+          <div class="dt-icon">⏰</div>
+          <div>
+            <div class="dt-label">Time</div>
+            <div class="dt-value">
+              10:00 AM <small>(Myanmar STD)</small><br>
+              3:30 PM <small>(New Zealand STD)</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="qr-block">
+        <div class="qr-label">Meeting Link:</div>
+        <div class="qr-image-wrapper">
+          <img src="7June2026-LUTalk-QR.jpeg" alt="QR Code">
+        </div>
+      </div>
+    </div>
+
+    <div class="right-col">
+      <div class="lecture-title">Learning Journey of a Resource Teacher Vision</div>
+
+      <div class="section-title">Abstract</div>
+      <div class="abstract-text">
+
+        <div class="sub-head">What is RTV and what does she do?</div>
+        <ul>
+          <li>Work alongside parents and caregivers, classroom teachers and teacher aides (early childhood, primary, intermediate and secondary), therapists and counsellors to provide resources for the students who are blind or have low vision</li>
+        </ul>
+
+        <div class="sub-head">A typical day of an RTV</div>
+        <ul>
+          <li>Read ophthalmic reports of students and do research to understand the eye conditions of each student</li>
+          <li>Communicate with parents/caregivers, teachers, therapists (emails, phone calls, messages) to arrange visits</li>
+          <li>Visit students and do vision assessments to determine the most appropriate learning media for the student (braille, large print)</li>
+          <li>If the student has additional needs, research the medical condition of the student and adapt the assessment and teaching techniques/materials</li>
+          <li>Write the reports in line with the mainstream NZ curriculum, Te Whāriki; the Early Childhood Curriculum and the Expanded Core Curriculum</li>
+        </ul>
+
+        <div class="sub-head">Why lifelong learning?</div>
+        <ul>
+          <li>Each child is an individual, and each child's development is unique. Children with the same condition develop differently depending on the environment in which they are raised.</li>
+          <li>The more knowledge you gain, the better you are at assessing students and delivering the services they deserve.</li>
+        </ul>
+
+        <div class="sub-head">Why do I choose to be an early childhood RTV?</div>
+        <ul>
+          <li>It is humbling to assist the families and the children who have a lot on their plates, especially in the early childhood sector.</li>
+          <li>I learned a lot about myself while learning to support them.</li>
+        </ul>
+      </div>
+
+      <div class="bio-section">
+        <div class="section-title">Brief Biography</div>
+        <div class="bio-timeline bio-two-col">
+          <div class="bio-item"><span class="bio-year">1971</span>Born in Rangoon (Yangon), Burma (Myanmar)</div>
+          <div class="bio-item"><span class="bio-year">1994</span>Graduated from Yangon University, majoring in Geology</div>
+          <div class="bio-item"><span class="bio-year">1996–2002</span>Worked as an international news translator at MRTV</div>
+          <div class="bio-item"><span class="bio-year">1998</span>Graduated from the Institute of Foreign Languages, Yangon, Majoring in French</div>
+          <div class="bio-item"><span class="bio-year">2002</span>Moved to Thailand</div>
+          <div class="bio-item"><span class="bio-year">2004</span>Graduated from Chulalongkorn University, majoring in Teaching English as an International Language</div>
+          <div class="bio-item"><span class="bio-year">2005</span>Moved to New Zealand</div>
+          <div class="bio-item"><span class="bio-year">2005–2006</span>Worked as a Language Aide at an intermediate school</div>
+          <div class="bio-item"><span class="bio-year">2013</span>Worked as an early childhood teacher in a mainstream centre</div>
+          <div class="bio-item"><span class="bio-year">2014</span>Graduated from Manukau Institute of Technology, majoring in Early Childhood Education</div>
+          <div class="bio-item"><span class="bio-year">2016–present</span>Worked as a Resource Teacher Vision at BLENNZ</div>
+          <div class="bio-item"><span class="bio-year">2016</span>Graduated from Massey University, majoring in E-Learning</div>
+          <div class="bio-item"><span class="bio-year">2019</span>Graduated from Massey University, majoring in Specialist Teaching, Blind and Low Vision</div>
+          <div class="bio-item"><span class="bio-year">2019</span>Graduated from Massey University, majoring in Specialist Teaching, Orientation and Mobility</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <div>
+      <div class="chair-label">Chairperson</div>
+      <div class="chair-name">Dr. Ye Kyaw Thu</div>
+      <div class="chair-detail">Lab Leader, LU Lab., Myanmar | Visiting Professor, NECTEC, Thailand</div>
+    </div>
+    <div class="footer-contact">
+      <a href="mailto:ykt.nlp.ai@gmail.com">✉ ykt.nlp.ai@gmail.com</a>
+      <div class="footer-lab">Language Understanding Lab., Myanmar</div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

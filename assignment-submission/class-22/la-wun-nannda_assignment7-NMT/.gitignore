@@ -1,0 +1,15 @@
+# cache
+__pycache__/
+.ipynb_checkpoints/
+
+# large model files
+*.npz
+
+# large binaries
+docker/marian-decoder
+
+# secrets
+.env
+
+# errors detected by the syllable normalizer
+detected_syllable_errors.txt
