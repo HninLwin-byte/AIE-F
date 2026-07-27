@@ -1,7 +1,0 @@
-# Python packages needed by the SMT tutorial notebooks.
-# Moses, GIZA++, KenLM, Perl scripts, and other command-line SMT tools must be installed separately.
-
-jupyterlab
-notebook
-ipykernel
-ipython
